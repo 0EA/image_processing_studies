@@ -53,7 +53,7 @@ plt.axis("off")
 plt.show()
 
 
-# binary threshold
+# adaptive threshold
 # 8 c sabiti, thresholda etkisi var
 # 11 block size
 thresh_img_2 = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 8)
@@ -70,9 +70,8 @@ plt.figure(), plt.imshow(gb, cmap="gray"), plt.axis("off"), plt.title("Gauss Blu
 
 
 # Laplacian gradient
-laplacian = cv2.Laplacian(img, ddepth= cv2.CV_16S)
-plt.figure(), plt.imshow(laplacian, cmap="gray"), plt.axis("off"), plt.title("Laplacian"), plt.show()
-
+laplacian = cv2.Laplacian(img, ddepth= cv2.CV_64F)
+cv2.imshow("laplacian", laplacian)
 
 # histogram
 img_hist = cv2.imread("odev1.jpg")
